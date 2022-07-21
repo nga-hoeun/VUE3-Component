@@ -1,20 +1,23 @@
 <template>
 <div class="mt-4">
   <div class="card m-auto w-50 rounded shadow p-3 mb-5 bg-white">
-    <!-- <h1>{{first_name}} {{last_name}}</h1>
-    <p>{{comment}}</p> -->
-    <h3 class="p-1">RONAN OGOR</h3>
-    <p>The best of the best</p>
+    <h3>{{friend.firstName}} {{friend.lastName}}</h3>
+    <p>{{friend.content}}</p>
+    <section>
+      <subject-card v-for="subject of friend.subjects" :key="subject" :subject="subject"></subject-card>
+    </section>
   </div>
 </div>
 </template>
 
 <script>
+import skillComponentVue from './skillComponent.vue'
 export default {
-  data(){
-    return{
-      
-    }
+  components:{
+    'subject-card':skillComponentVue
+  },
+  props:{
+    friend:Object
   }
 }
 </script>
